@@ -1,50 +1,24 @@
-# 🚀 3D Developer Portfolio
+# 🚀 Abhi Jain — Portfolio
 
-A modern, animated 3D developer portfolio built with React, Three.js, TailwindCSS, and motion effects — designed to help you stand out and showcase your skills creatively.
-
-![3d Portfolio Screenshot GitHub](https://github.com/user-attachments/assets/9b0ed20e-074e-4f2a-81d8-20c9da751e9e)
-
----
-
-## 📚 Table of Contents
-
-- [Features](#-features)
-- [Tech Stack](#-tech-stack)
-- [Project Structure](#-project-structure)
-- [Getting Started](#-getting-started)
-- [Assets](#-assets)
-- [Contact Me](#-contact-me)
-- [Suggestions or Feedback](#-suggestions-or-feedback)
-- [Like This Project?](#-like-this-project)
-
----
+Modern, animated **3D portfolio** built with **React**, **Three.js / React Three Fiber**, **Tailwind CSS**, and **Motion** — showcasing projects, skills, and a working contact form.
 
 ## ✨ Features
 
-- 🔥 3D visuals powered by **React Three Fiber** and **Drei**
-- ⚡ Smooth transitions and scroll-based animations using **Framer Motion**
-- 🎨 Clean, responsive UI with **TailwindCSS**
-- 💌 Working contact form using **EmailJS**
-- 🧱 Beautiful UI enhancements with **Aceternity UI** and **Magic UI**
-- 🚀 Lightning-fast development with **Vite**
-
----
+- **3D hero scene** using React Three Fiber + Drei
+- **Smooth UI animations** using Motion (`motion/react`)
+- **Tech stack orbit** + skills list
+- **Projects section** with hover preview + “Read more” modal + external links
+- **Working contact form** via **Web3Forms** (free tier, no paid domain allowlist)
 
 ## 🛠 Tech Stack
 
-| Tech              | Description                           |
-|-------------------|---------------------------------------|
-| React             | Front-end JavaScript library          |
-| Vite              | Fast bundler and dev environment      |
-| TailwindCSS       | Utility-first CSS framework           |
-| React Three Fiber | 3D rendering with Three.js in React   |
-| Drei              | Helpers and abstractions for R3F      |
-| Framer Motion     | Animation library for React           |
-| EmailJS           | Form handling and email integration   |
-| Aceternity UI     | Custom UI components                  |
-| Magic UI          | Prebuilt UI elements and design extras|
-
----
+| Tech | Use |
+|---|---|
+| React + Vite | App + build tooling |
+| Tailwind CSS | Styling |
+| Three.js + @react-three/fiber + @react-three/drei | 3D rendering |
+| Motion (`motion/react`) | Animations |
+| Web3Forms | Contact form email delivery |
 
 ## 📁 Project Structure
 
@@ -60,57 +34,52 @@ A modern, animated 3D developer portfolio built with React, Three.js, TailwindCS
 │   ├── App.jsx             # Main app file
 │   ├── index.css           # Tailwind css
 │   └── main.jsx            # Entry point
-├── tailwind.config.js
 └── vite.config.js
 ```
 
----
-
 ## 🚀 Getting Started
-1. Clone the Repository
-```bash
-git clone https://github.com/Ali-Sanati/Portfolio.git
-cd Portfolio
-```
-2. Install Dependencies
+
+Install dependencies:
+
 ```bash
 npm install
 ```
-3. Run the Development Server
+
+Run dev server:
+
 ```bash
 npm run dev
 ```
-The app will be available at http://localhost:5173.
 
----
+Build for production:
 
-## 🔗 Assets
-Assets used in the project can be found [here](https://github.com/user-attachments/files/19820923/public.zip)
+```bash
+npm run build
+```
 
----
+Preview the production build locally:
 
-## 📬 Contact Me
-[![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://www.instagram.com/ali.sanatidev/reels/) 
-[![Static Badge](https://img.shields.io/badge/Youtube-%23FF0033?style=flat&logo=youtube)](https://www.youtube.com/channel/UCZhtUWTtk3bGJiMPN9T4HWA)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ali-sanati/) 
+```bash
+npm run preview
+```
 
----
+## 📬 Contact form (Web3Forms)
 
-## 💡 Suggestions or Feedback?
-Leave a comment on the [YouTube video](https://youtu.be/S9UQItTpwUQ) or open an issue here on GitHub.<br/>
-👉 What should I build next?
+1. Create an access key at `https://web3forms.com/`
+2. Copy `.env.example` → `.env`
+3. Set:
 
-- A beautiful Landing Page
+```bash
+VITE_WEB3FORMS_ACCESS_KEY=your_key_here
+```
 
-- A complete E-commerce site
+4. Restart `npm run dev`
 
-- A fun App Clone (YouTube, Netflix, etc.)
+More details: see `contact-form-setup.txt`.
 
-Or another interactive Portfolio
+## ☁️ Deploy to Vercel
 
-Let me know!
-
----
-
-## ⭐ Like This Project?
-Star the repo and [subscribe](https://www.youtube.com/channel/UCZhtUWTtk3bGJiMPN9T4HWA??sub_confirmation=1) to the YouTube channel for more dev content!
+- **Framework preset:** Vite
+- **Build command:** `npm run build`
+- **Output directory:** `dist`
+- **Environment variables:** add `VITE_WEB3FORMS_ACCESS_KEY`, then redeploy

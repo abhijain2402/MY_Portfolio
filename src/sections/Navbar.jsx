@@ -1,25 +1,39 @@
 import { useState } from "react";
 import { motion } from "motion/react";
-function Navigation() {
+
+function scrollToSection(id, onDone) {
+  const el = document.getElementById(id);
+  if (el) {
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+    window.history.pushState(null, "", `#${id}`);
+  }
+  onDone?.();
+}
+
+function Navigation({ onNavigate }) {
+  const go = (e, id) => {
+    e.preventDefault();
+    scrollToSection(id, onNavigate);
+  };
   return (
     <ul className="nav-ul">
       <li className="nav-li">
-        <a className="nav-link" href="#home">
+        <a className="nav-link" href="#home" onClick={(e) => go(e, "home")}>
           Home
         </a>
       </li>
       <li className="nav-li">
-        <a className="nav-link" href="#about">
+        <a className="nav-link" href="#about" onClick={(e) => go(e, "about")}>
           About
         </a>
       </li>
       <li className="nav-li">
-        <a className="nav-link" href="#work">
+        <a className="nav-link" href="#work" onClick={(e) => go(e, "work")}>
           Work
         </a>
       </li>
       <li className="nav-li">
-        <a className="nav-link" href="#contact">
+        <a className="nav-link" href="#contact" onClick={(e) => go(e, "contact")}>
           Contact
         </a>
       </li>
@@ -33,10 +47,14 @@ const Navbar = () => {
       <div className="mx-auto c-space max-w-7xl">
         <div className="flex items-center justify-between py-2 sm:py-0">
           <a
-            href="/"
+            href="#home"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("home", () => setIsOpen(false));
+            }}
             className="text-xl font-bold transition-colors text-neutral-400 hover:text-white"
           >
-            Ali
+            Abhi
           </a>
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -49,7 +67,7 @@ const Navbar = () => {
             />
           </button>
           <nav className="hidden sm:flex">
-            <Navigation />
+            <Navigation onNavigate={() => setIsOpen(false)} />
           </nav>
         </div>
       </div>
@@ -62,7 +80,7 @@ const Navbar = () => {
           transition={{ duration: 1 }}
         >
           <nav className="pb-5">
-            <Navigation />
+            <Navigation onNavigate={() => setIsOpen(false)} />
           </nav>
         </motion.div>
       )}

@@ -1,7 +1,9 @@
 import { useState } from "react";
-import emailjs from "@emailjs/browser";
 import Alert from "../components/Alert";
 import { Particles } from "../components/Particles";
+
+const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY ?? "";
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -12,9 +14,11 @@ const Contact = () => {
   const [showAlert, setShowAlert] = useState(false);
   const [alertType, setAlertType] = useState("success");
   const [alertMessage, setAlertMessage] = useState("");
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+
   const showAlertMessage = (type, message) => {
     setAlertType(type);
     setAlertMessage(message);
@@ -23,35 +27,63 @@ const Contact = () => {
       setShowAlert(false);
     }, 5000);
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!WEB3FORMS_ACCESS_KEY.trim()) {
+      showAlertMessage(
+        "danger",
+        "Add your free Web3Forms key: copy .env.example to .env and set VITE_WEB3FORMS_ACCESS_KEY (see contact-form-setup.txt)."
+      );
+      return;
+    }
+
     setIsLoading(true);
 
     try {
-      console.log("From submitted:", formData);
-      await emailjs.send(
-        "service_79b0nyj",
-        "template_17us8im",
-        {
-          from_name: formData.name,
-          to_name: "Ali",
-          from_email: formData.email,
-          to_email: "AliSanatiDev@gmail.com",
-          message: formData.message,
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
         },
-        "pn-Bw_mS1_QQdofuV"
-      );
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY.trim(),
+          subject: `Portfolio contact from ${formData.name}`,
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          from_name: formData.name,
+          replyto: formData.email,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        setFormData({ name: "", email: "", message: "" });
+        showAlertMessage("success", "Your message has been sent!");
+      } else {
+        showAlertMessage(
+          "danger",
+          typeof data.message === "string"
+            ? data.message
+            : "Something went wrong. Try again later."
+        );
+      }
+    } catch {
+      showAlertMessage("danger", "Something went wrong. Check your connection.");
+    } finally {
       setIsLoading(false);
-      setFormData({ name: "", email: "", message: "" });
-      showAlertMessage("success", "You message has been sent!");
-    } catch (error) {
-      setIsLoading(false);
-      console.log(error);
-      showAlertMessage("danger", "Somthing went wrong!");
     }
   };
+
   return (
-    <section className="relative flex items-center c-space section-spacing">
+    <section
+      id="contact"
+      className="relative flex items-center c-space section-spacing"
+    >
       <Particles
         className="absolute inset-0 -z-50"
         quantity={100}
@@ -64,8 +96,8 @@ const Contact = () => {
         <div className="flex flex-col items-start w-full gap-5 mb-10">
           <h2 className="text-heading">Let's Talk</h2>
           <p className="font-normal text-neutral-400">
-            Whether you're loking to build a new website, improve your existing
-            platform, or bring a unique project to life, I'm here to help
+            Whether you&apos;re loking to build a new website, improve your existing
+            platform, or bring a unique project to life, I&apos;m here to help
           </p>
         </div>
         <form className="w-full" onSubmit={handleSubmit}>

@@ -1,0 +1,25 @@
+================================================================================
+Let’s Talk form — Web3Forms (FREE, no subscription for basic use)
+================================================================================
+
+Why Web3Forms instead of EmailJS?
+ EmailJS can require a paid plan for domain allowlists. Web3Forms has a free
+  tier (about 250 emails/month) and works from localhost and any host once  you add the access key.
+
+SETUP (about 2 minutes)
+-----------------------
+1. Open https://web3forms.com/ and sign up (free).
+2. Create an Access Key and choose the inbox where submissions should go
+   (e.g. abhijain9005@gmail.com).
+3. In this project folder, copy `.env.example` to `.env`
+4. Put your key in `.env`:
+      VITE_WEB3FORMS_ACCESS_KEY=paste_your_key_here
+5. Restart the dev server (`npm run dev`) so Vite loads the new env var.
+6. Submit the contact form — you should get the email.
+
+DEPLOYMENT (Vercel, Netlify, etc.)
+----------------------------------
+Add the same variable in the host’s “Environment variables” UI, then redeploy.
+Vite only reads VITE_* at build time.
+
+================================================================================
