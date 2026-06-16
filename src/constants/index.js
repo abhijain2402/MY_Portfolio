@@ -7,6 +7,43 @@ const projectImage = (filename) =>
 
 export const myProjects = [
   {
+    id: 4,
+    title: "Flappy Bird DQN using PyTorch",
+    description:
+      "Built a reinforcement learning agent for Flappy Bird using a Deep Q-Network (DQN) implemented in PyTorch. The project includes environment simulation, experience replay, and target network training for stable learning.",
+    subDescription: [
+      "Designed and trained a DQN agent to learn Flappy Bird gameplay using reward-based exploration",
+      "Implemented PyTorch neural network, experience replay buffer, epsilon-greedy policy, and target network updates",
+      "Monitored training progress with episode rewards, loss trends, and performance improvements",
+      "Demonstrates applied reinforcement learning, deep learning, and game AI development",
+    ],
+    href: "https://github.com/abhijain2402/flappy-bird-dqn-pytorch",
+    logo: "",
+    image: projectImage("flappy_bird_dqn_agent.png"),
+    tags: [
+      {
+        id: 1,
+        name: "Python",
+        path: assetUrl("assets/logos/python-original.svg"),
+      },
+      {
+        id: 2,
+        name: "PyTorch",
+        path: assetUrl("assets/logos/pytorch-original.svg"),
+      },
+      {
+        id: 3,
+        name: "Reinforcement Learning",
+        path: assetUrl("assets/logos/jupyter-original.svg"),
+      },
+      {
+        id: 4,
+        name: "NumPy",
+        path: assetUrl("assets/logos/numpy-original.svg"),
+      },
+    ],
+  },
+  {
     id: 1,
     title: "Loan Risk Classifier using Machine Learning",
     description:
@@ -132,6 +169,14 @@ export const mySocials = [
   },
 ];
 
+export const resumeData = {
+  name: "Abhi Jain",
+  title: "B.Tech Artificial Intelligence Student · ML Engineer Aspirant",
+  email: "abhiofficial2402@gmail.com",
+  phone: "+91-7617024197",
+  resumePdfUrl: "https://github.com/abhijain2402/MY_Portfolio/releases/download/v1.0.0/my_resume.7.pdf", // Replace with your actual resume PDF link
+};
+
 export const experiences = [
   {
     title: "BTech Student in AI/ML",
@@ -158,6 +203,7 @@ export const experiences = [
     ],
   },
 ];
+
 export const reviews = [
   {
     name: "Dr. Sharma",
