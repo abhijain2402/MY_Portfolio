@@ -11,11 +11,12 @@ const ProjectDetails = ({
   closeModal,
 }) => {
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center w-full h-full overflow-hidden backdrop-blur-sm">
+    <div className="fixed inset-0 z-50 flex items-center justify-center w-full h-full overflow-hidden bg-black/70">
       <motion.div
         className="relative max-w-2xl border shadow-sm rounded-2xl bg-gradient-to-l from-midnight to-navy border-white/10"
-        initial={{ opacity: 0, scale: 0.5 }}
+        initial={{ opacity: 0, scale: 0.98 }}
         animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.15, ease: "easeOut" }}
       >
         <button
           onClick={closeModal}
@@ -28,6 +29,7 @@ const ProjectDetails = ({
             src={image}
             alt={title}
             className="w-full rounded-t-2xl object-cover max-h-[14rem]"
+            decoding="async"
           />
         ) : null}
         <div className="p-5">

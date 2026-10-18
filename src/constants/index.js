@@ -19,6 +19,7 @@ export const myProjects = [
     ],
     href: "https://github.com/abhijain2402/Abhedya-Chakra",
     logo: "",
+    image: projectImage("Abhedhya-Chakra.png"),
     tags: [
       { id: 1, name: "React", path: assetUrl("assets/react.svg") },
       { id: 2, name: "FastAPI" },
