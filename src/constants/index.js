@@ -7,7 +7,57 @@ const projectImage = (filename) =>
 
 export const myProjects = [
   {
-    id: 4,
+    id: 1,
+    title: "Abhedya Chakra",
+    description:
+      "A full-stack investigation prototype for explainable mule-account risk screening, transaction-network investigation, and fund tracing. It combines risk signals and anomaly screening to help investigators review accounts and supporting evidence.",
+    subDescription: [
+      "Built a React interface backed by a FastAPI service for account risk, transaction, network, tracing, and report workflows",
+      "Combines rule-based risk signals with Isolation Forest anomaly screening to prioritize accounts for investigation",
+      "Includes account search, transaction history, network visualization, chronological fund tracing, and downloadable reports",
+      "Screening scores are investigative leads, not confirmed fraud labels or validated proof of mule activity",
+    ],
+    href: "https://github.com/abhijain2402/Abhedya-Chakra",
+    logo: "",
+    tags: [
+      { id: 1, name: "React", path: assetUrl("assets/react.svg") },
+      { id: 2, name: "FastAPI" },
+      {
+        id: 3,
+        name: "Python",
+        path: assetUrl("assets/logos/python-original.svg"),
+      },
+      { id: 4, name: "Isolation Forest" },
+      { id: 5, name: "Transaction Network Analysis" },
+    ],
+  },
+  {
+    id: 2,
+    title: "Text Summarizer",
+    description:
+      "A FastAPI text-summarization application powered by a fine-tuned T5 model, packaged in Docker and deployed as a Hugging Face Space.",
+    subDescription: [
+      "Provides a web interface and API for generating concise summaries from text",
+      "Uses fine-tuned T5 model weights hosted separately from the source repository",
+      "Automates deployment to Hugging Face Spaces through GitHub Actions",
+    ],
+    href: "https://github.com/abhijain2402/Text-summarizer",
+    logo: "",
+    tags: [
+      {
+        id: 1,
+        name: "Python",
+        path: assetUrl("assets/logos/python-original.svg"),
+      },
+      { id: 2, name: "FastAPI" },
+      { id: 3, name: "T5 Fine-tuning" },
+      { id: 4, name: "Docker" },
+      { id: 5, name: "GitHub Actions CI/CD" },
+      { id: 6, name: "Hugging Face Spaces" },
+    ],
+  },
+  {
+    id: 3,
     title: "Flappy Bird DQN using PyTorch",
     description:
       "Built a reinforcement learning agent for Flappy Bird using a Deep Q-Network (DQN) implemented in PyTorch. The project includes environment simulation, experience replay, and target network training for stable learning.",
@@ -44,7 +94,7 @@ export const myProjects = [
     ],
   },
   {
-    id: 1,
+    id: 4,
     title: "Loan Risk Classifier using Machine Learning",
     description:
       "Developed an end-to-end machine learning system to predict loan approval and risk classification based on applicant data. The project includes data preprocessing, exploratory data analysis (EDA), feature engineering, and training multiple classification models to improve prediction accuracy.",
@@ -81,7 +131,7 @@ export const myProjects = [
     ],
   },
   {
-    id: 2,
+    id: 5,
     title: "Market Segmentation using PCA and Clustering",
     description:
       "Developed an unsupervised machine learning project to segment customers based on behavioral and spending patterns. The workflow includes data preprocessing, feature scaling, and dimensionality reduction using Principal Component Analysis (PCA).",
@@ -118,7 +168,7 @@ export const myProjects = [
     ],
   },
   {
-    id: 3,
+    id: 6,
     title: "Iris Species Classification using Machine Learning",
     description:
       "Developed a machine learning classification model to predict the species of iris flowers based on morphological features such as sepal length, sepal width, petal length, and petal width.",
@@ -174,7 +224,7 @@ export const resumeData = {
   title: "B.Tech Artificial Intelligence Student · ML Engineer Aspirant",
   email: "abhiofficial2402@gmail.com",
   phone: "+91-7617024197",
-  resumePdfUrl: "https://github.com/abhijain2402/MY_Portfolio/releases/download/v1.0.0/my_resume.7.pdf", // Replace with your actual resume PDF link
+  resumePdfUrl: assetUrl("resume.pdf"),
 };
 
 export const experiences = [

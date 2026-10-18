@@ -23,7 +23,13 @@ const ProjectDetails = ({
         >
           <img src={assetUrl("assets/close.svg")} alt="" className="w-6 h-6" />
         </button>
-        <img src={image} alt={title} className="w-full rounded-t-2xl object-cover max-h-[14rem]" />
+        {image ? (
+          <img
+            src={image}
+            alt={title}
+            className="w-full rounded-t-2xl object-cover max-h-[14rem]"
+          />
+        ) : null}
         <div className="p-5">
           <h5 className="mb-2 text-2xl font-bold text-white">{title}</h5>
           <p className="mb-3 font-normal text-neutral-400">{description}</p>
@@ -35,13 +41,22 @@ const ProjectDetails = ({
           <div className="flex flex-wrap items-center justify-between gap-4 mt-4">
             <div className="flex flex-wrap gap-3">
               {tags.map((tag) => (
-                <img
-                  key={tag.id}
-                  src={tag.path}
-                  alt={tag.name}
-                  title={tag.name}
-                  className="size-10 rounded-lg bg-white/90 object-contain p-1.5 ring-1 ring-white/20 hover-animation"
-                />
+                tag.path ? (
+                  <img
+                    key={tag.id}
+                    src={tag.path}
+                    alt={tag.name}
+                    title={tag.name}
+                    className="size-10 rounded-lg bg-white/90 object-contain p-1.5 ring-1 ring-white/20 hover-animation"
+                  />
+                ) : (
+                  <span
+                    key={tag.id}
+                    className="rounded-lg border border-white/20 px-3 py-2 text-sm text-neutral-300"
+                  >
+                    {tag.name}
+                  </span>
+                )
               ))}
             </div>
             {href ? (
